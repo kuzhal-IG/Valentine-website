@@ -200,7 +200,7 @@
 
 <body>
 
-<audio id="bgMusic" src="romantic_piano.mp3"></audio>
+<audio id="bgMusic" src="romantic_piano.mp3" controls></audio>
 
 <div class="container">
 
@@ -238,7 +238,7 @@
 
     <!-- YES PAGE -->
     <div class="love-message hide" id="loveMessage">
-        <img src="photo.jpg" class="bitmoji" alt="My Bitmoji">
+        <img src="photo.png" class="bitmoji" alt="My Bitmoji">
         <h2>YAYYY! 💍💘</h2>
         <p>I knew you'd say YES 😘</p>
         <p class="romantic-quote" id="quote"></p>
@@ -273,7 +273,10 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 mainContent.classList.replace("hide", "show");
                 music.volume = 0.6;
-                music.play();
+                music.play().catch(error => {
+                    console.log('Autoplay prevented:', error);
+                    // User can click to play manually if autoplay fails
+                    });
             },300);
         } else {
             lockScreen.classList.replace("show", "hide");
@@ -379,3 +382,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
