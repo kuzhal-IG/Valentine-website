@@ -200,7 +200,7 @@
 
 <body>
 
-<audio id="bgMusic" src="romantic_piano.mp3"></audio>
+<audio id="bgMusic" src="romantic_piano.mp3" controls></audio>
 
 <div class="container">
 
@@ -273,10 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 mainContent.classList.replace("hide", "show");
                 music.volume = 0.6;
-                music.play().catch(error => {
-                    console.log('Autoplay prevented:', error);
-                    // User can click to play manually if autoplay fails
-                    });
+                music.play()
             },300);
         } else {
             lockScreen.classList.replace("show", "hide");
@@ -382,6 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
